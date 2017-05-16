@@ -2219,7 +2219,7 @@
 {"开始写代码本地Windows环境了 新建文件send.py
 {"123456789101112131415161718192021222324252627282930#!/usr/bin/env python#
 {"-*- coding: utf-8 -*-# @Date : 2017-04-02 01:20:41# @Author : 车神
-{"(meteorshield@gmail.com)# @Link : https://github.com/Oxygen- hope/Oxygen-
+{"(522085990@qq.com)# @Link : https://github.com/Oxygen- hope/Oxygen-
 {"hope.github.io.git# @Version : $Id$import pika# 就是我们刚才创建的那个credentials =
 {"pika.PlainCredentials('用户名', '密码')parameters =
 {"pika.ConnectionParameters(credentials=credentials)parameters =
@@ -2231,7 +2231,7 @@
 {"queue='hello', no_ack=True)channel.start_consuming() 新建receive.py
 {"12345678910111213141516171819202122232425262728#!/usr/bin/env python# -*-
 {"coding: utf-8 -*-# @Date : 2017-04-02 01:20:41# @Author : 车神
-{"(meteorshield@gmail.com)# @Link : https://github.com/Oxygen- hope/Oxygen-
+{"(522085990@qq.com)# @Link : https://github.com/Oxygen- hope/Oxygen-
 {"hope.github.io.git# @Version : $Id$import pikacredentials =
 {"pika.PlainCredentials('用户名', '密码')parameters =
 {"pika.ConnectionParameters(credentials=credentials)parameters =
