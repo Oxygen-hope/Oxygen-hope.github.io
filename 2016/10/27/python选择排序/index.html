@@ -87,16 +87,16 @@
 
 
 
-<meta name="description" content="算法+数据结构=编程    算法实际上是依托于数据结构的，没有数据结构就没有算法。    以下代码在Python3.5上正常运行，转载请注明出处。    By.秋名山车神">
+<meta name="description" content="算法+数据结构=编程    算法实际上是依托于数据结构的，没有数据结构就没有算法。    以下代码在Python3.5上正常运行，转载请注明出处。    By.秋名山Oxygen">
 <meta property="og:type" content="article">
 <meta property="og:title" content="python选择排序">
 <meta property="og:url" content="https://github.com/Oxygen-hope/Oxygen-hope.github.io.git/2016/10/27/python选择排序/index.html">
 <meta property="og:site_name" content="Oxygen的博客">
-<meta property="og:description" content="算法+数据结构=编程    算法实际上是依托于数据结构的，没有数据结构就没有算法。    以下代码在Python3.5上正常运行，转载请注明出处。    By.秋名山车神">
+<meta property="og:description" content="算法+数据结构=编程    算法实际上是依托于数据结构的，没有数据结构就没有算法。    以下代码在Python3.5上正常运行，转载请注明出处。    By.秋名山Oxygen">
 <meta property="og:updated_time" content="2017-04-15T06:09:30.785Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="python选择排序">
-<meta name="twitter:description" content="算法+数据结构=编程    算法实际上是依托于数据结构的，没有数据结构就没有算法。    以下代码在Python3.5上正常运行，转载请注明出处。    By.秋名山车神">
+<meta name="twitter:description" content="算法+数据结构=编程    算法实际上是依托于数据结构的，没有数据结构就没有算法。    以下代码在Python3.5上正常运行，转载请注明出处。    By.秋名山Oxygen">
 
 
 
@@ -187,7 +187,7 @@
       </a>
     </div>
       
-        <p class="site-subtitle">车神维基</p>
+        <p class="site-subtitle">Oxygen</p>
       
   </div>
 
@@ -308,7 +308,7 @@
     <link itemprop="mainEntityOfPage" href="https://github.com/Oxygen-hope/Oxygen-hope.github.io.git/2016/10/27/python选择排序/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="车神">
+      <meta itemprop="name" content="Oxygen">
       <meta itemprop="description" content="">
       <meta itemprop="image" content="/uploads/me.png">
     </span>
@@ -404,7 +404,7 @@
       
 
       
-        <p><blockquote class="blockquote-center"><br>    <strong>算法+数据结构=编程</strong><br>    算法实际上是依托于数据结构的，没有数据结构就没有算法。<br>    <strong>以下代码在Python3.5上正常运行，转载请注明出处。</strong><br>    <strong>By.秋名山车神</strong><br></blockquote><br><a id="more"></a></p>
+        <p><blockquote class="blockquote-center"><br>    <strong>算法+数据结构=编程</strong><br>    算法实际上是依托于数据结构的，没有数据结构就没有算法。<br>    <strong>以下代码在Python3.5上正常运行，转载请注明出处。</strong><br>    <strong>By.秋名山Oxygen</strong><br></blockquote><br><a id="more"></a></p>
 <h1 id="O-n-2-级别的排序算法"><a href="#O-n-2-级别的排序算法" class="headerlink" title="O(n^2)级别的排序算法"></a>O(n^2)级别的排序算法</h1><h2 id="选择排序"><a href="#选择排序" class="headerlink" title="选择排序"></a>选择排序</h2><p>将一个列表：10, 9, 8, 7, 6, 5, 4, 3, 2, 1 进行从小到大排序：</p>
 <h3 id="普通实现"><a href="#普通实现" class="headerlink" title="普通实现"></a>普通实现</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># arr为待排序的列表</span></div><div class="line"><span class="comment"># 在从0到n之间进行排序</span></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">selection_sort</span><span class="params">(arr, n)</span>:</span></div><div class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(n):</div><div class="line">        <span class="comment"># 假定i的位置是最小值</span></div><div class="line">        minIndex = i</div><div class="line">        <span class="keyword">for</span> j <span class="keyword">in</span> range(i+<span class="number">1</span>, n):</div><div class="line">            <span class="keyword">if</span> arr[j] &lt; arr[minIndex]:</div><div class="line">                minIndex = j</div><div class="line">        <span class="comment"># 交换arr[i] 和 arr[minIndex]的值</span></div><div class="line">        arr[i], arr[minIndex] = arr[minIndex], arr[i]</div><div class="line">    <span class="keyword">return</span> arr</div><div class="line"></div><div class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</div><div class="line">    <span class="comment"># 生成测试数据</span></div><div class="line">    a = [<span class="number">10</span>,<span class="number">9</span>,<span class="number">8</span>,<span class="number">7</span>,<span class="number">6</span>,<span class="number">5</span>,<span class="number">4</span>,<span class="number">3</span>,<span class="number">2</span>,<span class="number">1</span>]</div><div class="line">    selection_sort(a, <span class="number">10</span>)</div><div class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> a:</div><div class="line">        print(str(i), end = <span class="string">" "</span>)</div><div class="line">    print()</div></pre></td></tr></table></figure>
 <hr>
@@ -438,13 +438,13 @@
     <div id="QR" style="display: none;">
       
         <div id="wechat" style="display: inline-block">
-          <img id="wechat_qr" src="/uploads/wechat-reward-image.png" alt="车神 WeChat Pay"/>
+          <img id="wechat_qr" src="/uploads/wechat-reward-image.png" alt="Oxygen WeChat Pay"/>
           <p>微信打赏</p>
         </div>
       
       
         <div id="alipay" style="display: inline-block">
-          <img id="alipay_qr" src="/uploads/alipay-reward-image.png" alt="车神 Alipay"/>
+          <img id="alipay_qr" src="/uploads/alipay-reward-image.png" alt="Oxygen Alipay"/>
           <p>支付宝打赏</p>
         </div>
       
@@ -530,13 +530,13 @@
     <div id="QR" style="display: none;">
       
         <div id="wechat" style="display: inline-block">
-          <img id="wechat_qr" src="/uploads/wechat-reward-image.png" alt="车神 WeChat Pay"/>
+          <img id="wechat_qr" src="/uploads/wechat-reward-image.png" alt="Oxygen WeChat Pay"/>
           <p>微信打赏</p>
         </div>
       
       
         <div id="alipay" style="display: inline-block">
-          <img id="alipay_qr" src="/uploads/alipay-reward-image.png" alt="车神 Alipay"/>
+          <img id="alipay_qr" src="/uploads/alipay-reward-image.png" alt="Oxygen Alipay"/>
           <p>支付宝打赏</p>
         </div>
       
@@ -586,10 +586,10 @@
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/uploads/me.png"
-               alt="车神" />
-          <p class="site-author-name" itemprop="name">车神</p>
+               alt="Oxygen" />
+          <p class="site-author-name" itemprop="name">Oxygen</p>
            
-              <p class="site-description motion-element" itemprop="description">我本微末凡尘，却也心向天空。</p>
+              <p class="site-description motion-element" itemprop="description">水滴石穿，聚沙成塔</p>
           
         </div>
         <nav class="site-state motion-element">
@@ -750,14 +750,14 @@
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
-  <span class="author" itemprop="copyrightHolder">车神</span>
+  <span class="author" itemprop="copyrightHolder">Oxygen</span>
 </div>
 
 
 
 
 <div class="theme-info">
-  我本微末凡尘，却也心向天空。
+  水滴石穿，聚沙成塔
 </div>
 
         

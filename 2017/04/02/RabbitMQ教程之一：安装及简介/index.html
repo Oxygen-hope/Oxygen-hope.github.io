@@ -191,7 +191,7 @@
       </a>
     </div>
       
-        <p class="site-subtitle">车神维基</p>
+        <p class="site-subtitle">Oxygen</p>
       
   </div>
 
@@ -312,7 +312,7 @@
     <link itemprop="mainEntityOfPage" href="https://github.com/Oxygen-hope/Oxygen-hope.github.io.git/2017/04/02/RabbitMQ教程之一：安装及简介/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="车神">
+      <meta itemprop="name" content="Oxygen">
       <meta itemprop="description" content="">
       <meta itemprop="image" content="/uploads/me.png">
     </span>
@@ -493,9 +493,9 @@ Adding system user</code>rabbitmq’ (UID 105) …<br>Adding new user <code>rabb
 <p>终于可以写代码了！！！</p>
 <h3 id="开始写代码"><a href="#开始写代码" class="headerlink" title="开始写代码"></a>开始写代码</h3><p><strong>本地Windows环境了</strong></p>
 <p>新建文件send.py</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#!/usr/bin/env python</span></div><div class="line"><span class="comment"># -*- coding: utf-8 -*-</span></div><div class="line"><span class="comment"># @Date    : 2017-04-02 01:20:41</span></div><div class="line"><span class="comment"># @Author  : 车神 (522085990@qq.com)</span></div><div class="line"><span class="comment"># @Link    : https://github.com/Oxygen-hope/Oxygen-hope.github.io.git</span></div><div class="line"><span class="comment"># @Version : $Id$</span></div><div class="line"></div><div class="line"><span class="keyword">import</span> pika</div><div class="line"></div><div class="line"><span class="comment"># 就是我们刚才创建的那个</span></div><div class="line">credentials = pika.PlainCredentials(<span class="string">'用户名'</span>, <span class="string">'密码'</span>)</div><div class="line">parameters = pika.ConnectionParameters(credentials=credentials)</div><div class="line"></div><div class="line">parameters = pika.ConnectionParameters(<span class="string">'服务器IP'</span>,<span class="number">5672</span>,<span class="string">'/'</span>,credentials)    </div><div class="line">connection = pika.BlockingConnection(parameters)</div><div class="line"></div><div class="line">channel = connection.channel()</div><div class="line"></div><div class="line">channel.queue_declare(queue=<span class="string">'hello'</span>)</div><div class="line"></div><div class="line">print(<span class="string">' [*] Waiting for messages. To exit press CTRL+C'</span>)</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">callback</span><span class="params">(ch, method, properties, body)</span>:</span></div><div class="line">    print(<span class="string">" [x] Received %r"</span> % (body,))</div><div class="line"></div><div class="line">channel.basic_consume(callback,</div><div class="line">                      queue=<span class="string">'hello'</span>,</div><div class="line">                      no_ack=<span class="keyword">True</span>)</div><div class="line"></div><div class="line">channel.start_consuming()</div></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#!/usr/bin/env python</span></div><div class="line"><span class="comment"># -*- coding: utf-8 -*-</span></div><div class="line"><span class="comment"># @Date    : 2017-04-02 01:20:41</span></div><div class="line"><span class="comment"># @Author  : Oxygen (522085990@qq.com)</span></div><div class="line"><span class="comment"># @Link    : https://github.com/Oxygen-hope/Oxygen-hope.github.io.git</span></div><div class="line"><span class="comment"># @Version : $Id$</span></div><div class="line"></div><div class="line"><span class="keyword">import</span> pika</div><div class="line"></div><div class="line"><span class="comment"># 就是我们刚才创建的那个</span></div><div class="line">credentials = pika.PlainCredentials(<span class="string">'用户名'</span>, <span class="string">'密码'</span>)</div><div class="line">parameters = pika.ConnectionParameters(credentials=credentials)</div><div class="line"></div><div class="line">parameters = pika.ConnectionParameters(<span class="string">'服务器IP'</span>,<span class="number">5672</span>,<span class="string">'/'</span>,credentials)    </div><div class="line">connection = pika.BlockingConnection(parameters)</div><div class="line"></div><div class="line">channel = connection.channel()</div><div class="line"></div><div class="line">channel.queue_declare(queue=<span class="string">'hello'</span>)</div><div class="line"></div><div class="line">print(<span class="string">' [*] Waiting for messages. To exit press CTRL+C'</span>)</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">callback</span><span class="params">(ch, method, properties, body)</span>:</span></div><div class="line">    print(<span class="string">" [x] Received %r"</span> % (body,))</div><div class="line"></div><div class="line">channel.basic_consume(callback,</div><div class="line">                      queue=<span class="string">'hello'</span>,</div><div class="line">                      no_ack=<span class="keyword">True</span>)</div><div class="line"></div><div class="line">channel.start_consuming()</div></pre></td></tr></table></figure>
 <p>新建receive.py</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#!/usr/bin/env python</span></div><div class="line"><span class="comment"># -*- coding: utf-8 -*-</span></div><div class="line"><span class="comment"># @Date    : 2017-04-02 01:20:41</span></div><div class="line"><span class="comment"># @Author  : 车神 (522085990@qq.com)</span></div><div class="line"><span class="comment"># @Link    : https://github.com/Oxygen-hope/Oxygen-hope.github.io.git</span></div><div class="line"><span class="comment"># @Version : $Id$</span></div><div class="line"></div><div class="line"><span class="keyword">import</span> pika</div><div class="line">credentials = pika.PlainCredentials(<span class="string">'用户名'</span>, <span class="string">'密码'</span>)</div><div class="line">parameters = pika.ConnectionParameters(credentials=credentials)</div><div class="line"></div><div class="line">parameters = pika.ConnectionParameters(<span class="string">'服务器IP'</span>,<span class="number">5672</span>,<span class="string">'/'</span>,credentials)    </div><div class="line">connection = pika.BlockingConnection(parameters)</div><div class="line"></div><div class="line">channel = connection.channel()</div><div class="line"></div><div class="line">channel.queue_declare(queue=<span class="string">'hello'</span>)</div><div class="line"></div><div class="line">print(<span class="string">' [*] Waiting for messages. To exit press CTRL+C'</span>)</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">callback</span><span class="params">(ch, method, properties, body)</span>:</span></div><div class="line">    print(<span class="string">" [x] Received %r"</span> % (body,))</div><div class="line"></div><div class="line">channel.basic_consume(callback,</div><div class="line">                      queue=<span class="string">'hello'</span>,</div><div class="line">                      no_ack=<span class="keyword">True</span>)</div><div class="line"></div><div class="line">channel.start_consuming()</div></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#!/usr/bin/env python</span></div><div class="line"><span class="comment"># -*- coding: utf-8 -*-</span></div><div class="line"><span class="comment"># @Date    : 2017-04-02 01:20:41</span></div><div class="line"><span class="comment"># @Author  : Oxygen (522085990@qq.com)</span></div><div class="line"><span class="comment"># @Link    : https://github.com/Oxygen-hope/Oxygen-hope.github.io.git</span></div><div class="line"><span class="comment"># @Version : $Id$</span></div><div class="line"></div><div class="line"><span class="keyword">import</span> pika</div><div class="line">credentials = pika.PlainCredentials(<span class="string">'用户名'</span>, <span class="string">'密码'</span>)</div><div class="line">parameters = pika.ConnectionParameters(credentials=credentials)</div><div class="line"></div><div class="line">parameters = pika.ConnectionParameters(<span class="string">'服务器IP'</span>,<span class="number">5672</span>,<span class="string">'/'</span>,credentials)    </div><div class="line">connection = pika.BlockingConnection(parameters)</div><div class="line"></div><div class="line">channel = connection.channel()</div><div class="line"></div><div class="line">channel.queue_declare(queue=<span class="string">'hello'</span>)</div><div class="line"></div><div class="line">print(<span class="string">' [*] Waiting for messages. To exit press CTRL+C'</span>)</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">callback</span><span class="params">(ch, method, properties, body)</span>:</span></div><div class="line">    print(<span class="string">" [x] Received %r"</span> % (body,))</div><div class="line"></div><div class="line">channel.basic_consume(callback,</div><div class="line">                      queue=<span class="string">'hello'</span>,</div><div class="line">                      no_ack=<span class="keyword">True</span>)</div><div class="line"></div><div class="line">channel.start_consuming()</div></pre></td></tr></table></figure>
 <p>在本地的控制台输入：</p>
 <p><code>python send.py</code></p>
 <p>然后会看到：</p>
@@ -515,9 +515,9 @@ Adding system user</code>rabbitmq’ (UID 105) …<br>Adding new user <code>rabb
 <p>多来几次就可以了</p>
 </blockquote>
 <p>下章我们详细解释这些方法都是干啥的。</p>
-<h2 id="后记"><a href="#后记" class="headerlink" title="后记"></a>后记</h2><p>感谢大家的支持，本文原创作者：<a href="https://github.com/Oxygen-hope/Oxygen-hope.github.io.git">秋名山车神</a></p>
+<h2 id="后记"><a href="#后记" class="headerlink" title="后记"></a>后记</h2><p>感谢大家的支持，本文原创作者：<a href="https://github.com/Oxygen-hope/Oxygen-hope.github.io.git">秋名山Oxygen</a></p>
 <p>转载请注明出处，大家有任何的问题，都可以通过我博客上的联系方式与我取得联系。</p>
-<p>大家如果觉得本文对你有帮助，觉得车神熬夜写博客令你感动的话~可以点击下方的赞来小额打赏一下~</p>
+<p>大家如果觉得本文对你有帮助，觉得Oxygen熬夜写博客令你感动的话~可以点击下方的赞来小额打赏一下~</p>
 <p>END</p>
 
       
@@ -541,13 +541,13 @@ Adding system user</code>rabbitmq’ (UID 105) …<br>Adding new user <code>rabb
     <div id="QR" style="display: none;">
       
         <div id="wechat" style="display: inline-block">
-          <img id="wechat_qr" src="/uploads/wechat-reward-image.png" alt="车神 WeChat Pay"/>
+          <img id="wechat_qr" src="/uploads/wechat-reward-image.png" alt="Oxygen WeChat Pay"/>
           <p>微信打赏</p>
         </div>
       
       
         <div id="alipay" style="display: inline-block">
-          <img id="alipay_qr" src="/uploads/alipay-reward-image.png" alt="车神 Alipay"/>
+          <img id="alipay_qr" src="/uploads/alipay-reward-image.png" alt="Oxygen Alipay"/>
           <p>支付宝打赏</p>
         </div>
       
@@ -631,13 +631,13 @@ Adding system user</code>rabbitmq’ (UID 105) …<br>Adding new user <code>rabb
     <div id="QR" style="display: none;">
       
         <div id="wechat" style="display: inline-block">
-          <img id="wechat_qr" src="/uploads/wechat-reward-image.png" alt="车神 WeChat Pay"/>
+          <img id="wechat_qr" src="/uploads/wechat-reward-image.png" alt="Oxygen WeChat Pay"/>
           <p>微信打赏</p>
         </div>
       
       
         <div id="alipay" style="display: inline-block">
-          <img id="alipay_qr" src="/uploads/alipay-reward-image.png" alt="车神 Alipay"/>
+          <img id="alipay_qr" src="/uploads/alipay-reward-image.png" alt="Oxygen Alipay"/>
           <p>支付宝打赏</p>
         </div>
       
@@ -687,10 +687,10 @@ Adding system user</code>rabbitmq’ (UID 105) …<br>Adding new user <code>rabb
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/uploads/me.png"
-               alt="车神" />
-          <p class="site-author-name" itemprop="name">车神</p>
+               alt="Oxygen" />
+          <p class="site-author-name" itemprop="name">Oxygen</p>
            
-              <p class="site-description motion-element" itemprop="description">我本微末凡尘，却也心向天空。</p>
+              <p class="site-description motion-element" itemprop="description">水滴石穿，聚沙成塔</p>
           
         </div>
         <nav class="site-state motion-element">
@@ -851,14 +851,14 @@ Adding system user</code>rabbitmq’ (UID 105) …<br>Adding new user <code>rabb
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
-  <span class="author" itemprop="copyrightHolder">车神</span>
+  <span class="author" itemprop="copyrightHolder">Oxygen</span>
 </div>
 
 
 
 
 <div class="theme-info">
-  我本微末凡尘，却也心向天空。
+  水滴石穿，聚沙成塔
 </div>
 
         
